@@ -1,0 +1,7 @@
+{
+  "name": "bhadas4media",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
