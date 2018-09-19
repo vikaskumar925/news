@@ -9,7 +9,7 @@ import { HttpModule } from '@angular/http';
     ],
     imports:[
         IonicPageModule.forChild(HomePage),
-       HttpModule
+        HttpModule
     ],
     exports:[
         HomePage,

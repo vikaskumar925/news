@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage,NavController } from 'ionic-angular';
 import { PostDetailsPage } from '../post-details/post-details';
-import { Http } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
+import { HttpClient } from '@angular/common/http';
 import 'rxjs/add/operator/map';
 
 @IonicPage()
@@ -12,20 +13,21 @@ import 'rxjs/add/operator/map';
 export class HomePage {
 
   public isSearchbarOpened = false;
-  constructor(public navCtrl: NavController, private http:Http) {
-   this.homecontent();
-  }
-home()
-{
-this.navCtrl.push(PostDetailsPage);
-}
-homecontent()
-{   
+  constructor(public navCtrl: NavController, private httpClient:HttpClient) {
+		this.homecontent();
+  	}
+	home()
+	{
+	this.navCtrl.push(PostDetailsPage);
+	}
+	homecontent(){   
 
-	let url = "https://www.bhadas4media.com/wp-json/wp/v2/posts";
+		let url = "https://www.bhadas4media.com/wp-json/wp/v2/posts";
 
-     let data = this.http.get(url);
-     console.log(data);
-}
+		this.httpClient.get<[]>(url)
+		.subscribe(data => {
+			console.log('my data: ', data);
+		  });
+	}
 }
 
