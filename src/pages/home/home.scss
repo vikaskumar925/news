@@ -1,3 +1,20 @@
 page-home {
 
+
+  .text_clr
+  {
+  color: #fff;
+  text-decoration:none;
+  }
+  .inline{
+         display: inline-block;
+     }
+
+     ion-scroll{
+         white-space: nowrap; 
+         height: 400px;
+         width: 600px;
+     }
+
 }
+
