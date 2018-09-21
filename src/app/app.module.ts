@@ -7,6 +7,7 @@ import { HomePage } from '../pages/home/home';
 import { PostDetailsPage } from '../pages/post-details/post-details';
 import { MyApp } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
+import { PipesModule } from '../pipes/pipes.module';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    HttpClientModule
+    HttpClientModule,
+    PipesModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

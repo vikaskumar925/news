@@ -79,16 +79,16 @@
     
   </ion-navbar>
 </ion-header>
-<ion-content padding *ngFor="let post of posts">
-  <ion-grid>
+<ion-content padding >
+  <ion-grid *ngFor="let post of posts">
     <ion-row (click)="home()">
     <ion-col style="cursor: pointer;" col-sm-4 col-lg-1>
-    <ion-img style="width: 80px;height: 80px;display: -webkit-inline-box;background: none;" src="../assets/imgs/blog1.jpg"></ion-img>
+    <ion-img style="width: 80px;height: 80px;display:block;background: none;" src="../assets/imgs/blog1.jpg"></ion-img>
 </ion-col>
 <ion-col style="cursor: pointer;" col-sm-8>
-   <h2 style="font-family: 'Poppins', sans-serif;">{{ post.title.rendered}}</h2>
+   <h2 style="font-family: 'Poppins', sans-serif;" [innerHTML]="post.title.rendered"></h2>
  </ion-col>
-  <ion-col col-sm-12 col-lg-12 style="margin-left: 97px;
+  <!-- <ion-col col-sm-12 col-lg-12 style="margin-left: 97px;
     position: absolute;
     margin-top: 23px;
     cursor: pointer;">
@@ -96,44 +96,13 @@
     font-size: 18px;
     font-weight: 300;
     line-height: 1.7em;
-    color: #999;">वर्णन अपने कराना बेंगलूर व्याख्यान विवरन क्षमता सभिसमज सिद्धांत उसके रचना संसाध माध्यम दोषसके पत्रिका</p>
-   </ion-col>  
+    color: #999;" [innerHTML]="post.content.rendered"></p>
+   </ion-col> -->
+
 </ion-row>
- <ion-row (click)="home()">
-    <ion-col style="cursor: pointer;" col-sm-4 col-lg-1>
-    <ion-img style="width: 80px;height: 80px;display: -webkit-inline-box;background: none;" src="../assets/imgs/blog1.jpg"></ion-img>
-</ion-col>
-<ion-col style="cursor: pointer;" col-sm-8 col-lg-8>
-   <h2 style="font-family: 'Poppins', sans-serif;">वर्णन अपने कराना बेंगलूर व्याख्यान विवरन क्षमता सभिसमज सिद्धांत उसके</h2>
- </ion-col>
- <ion-col col-sm-12 col-lg-12 style="margin-left: 97px;
-    position: absolute;
-    margin-top: 23px;
-    cursor: pointer;">
-   <p style="font-family: 'Poppins', sans-serif;
-    font-size: 18px;
-    font-weight: 300;
-    line-height: 1.7em;
-    color: #999;">वर्णन अपने कराना बेंगलूर व्याख्यान विवरन क्षमता सभिसमज सिद्धांत उसके रचना संसाध माध्यम दोषसके पत्रिका</p>
-   </ion-col> 
-</ion-row>
-<ion-row (click)="home()">
-    <ion-col style="cursor: pointer;" col-sm-4 col-lg-1>
-    <ion-img style="width: 80px;height: 80px;display: -webkit-inline-box;background: none;" src="../assets/imgs/blog1.jpg"></ion-img>
-</ion-col>
-<ion-col style="cursor: pointer;" col-sm-8 col-lg-8>
-   <h2 style="font-family: 'Poppins', sans-serif;">वर्णन अपने कराना बेंगलूर व्याख्यान विवरन क्षमता सभिसमज सिद्धांत उसके</h2>
- </ion-col>
- <ion-col col-sm-12 col-lg-12 style="margin-left: 97px;
-    position: absolute;
-    margin-top: 23px;
-    cursor: pointer;">
-   <p style="font-family: 'Poppins', sans-serif;
-    font-size: 18px;
-    font-weight: 300;
-    line-height: 1.7em;
-    color: #999;">वर्णन अपने कराना बेंगलूर व्याख्यान विवरन क्षमता सभिसमज सिद्धांत उसके रचना संसाध माध्यम दोषसके पत्रिका</p>
-   </ion-col> 
-</ion-row>   
+    
 </ion-grid>
+ <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data..."></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 </ion-content>
