@@ -7,32 +7,34 @@ import { HomePage } from '../pages/home/home';
 import { PostDetailsPage } from '../pages/post-details/post-details';
 import { MyApp } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
-import { PipesModule } from '../pipes/pipes.module';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
+import { ApiProvider } from '../providers/api/api';
 
 
 @NgModule({
-  declarations: [
-    MyApp,
-    HomePage,
-    PostDetailsPage
-  ],
-  imports: [
-    BrowserModule,
-    IonicModule.forRoot(MyApp),
-    HttpClientModule,
-    PipesModule
-  ],
-  bootstrap: [IonicApp],
-  entryComponents: [
-    MyApp,
-    HomePage,
-    PostDetailsPage
-  ],
-  providers: [
-    StatusBar,
-    SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
-  ]
+	declarations: [
+		MyApp,
+		HomePage,
+		PostDetailsPage
+	],
+	imports: [
+		BrowserModule,
+		IonicModule.forRoot(MyApp),
+		HttpClientModule,
+	],
+	bootstrap: [IonicApp],
+	entryComponents: [
+		MyApp,
+		HomePage,
+		PostDetailsPage
+	],
+	providers: [
+		StatusBar,
+		SplashScreen,
+		{ provide: ErrorHandler, useClass: IonicErrorHandler },
+		ApiProvider,
+		InAppBrowser
+	]
 })
 export class AppModule {
 }

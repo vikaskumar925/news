@@ -1,79 +1,26 @@
 <ion-menu [content]="content">
 	<ion-header>
 		<ion-toolbar>
-			<ion-title class="test">
+			<ion-title>
 				<img src="/assets/imgs/logo2.png" alt="test" style="display:inline-block;height: 150px;
     width: 150px;
     padding-top: 20px;
-    margin-left: 42px;"/>
+	margin-left: 42px;" />
+				<ion-item no-padding no-lines>No.1 Indian Media News Portal</ion-item>
 			</ion-title>
-			 <ion-buttons right >
-				<button ion-button icon-only menuClose style="padding-bottom: 83px;" >
-					<ion-icon style="color:#fff;" name="arrow-back"></ion-icon>
+			<ion-buttons right>
+				<button ion-button icon-only menuClose style="padding-bottom: 83px;">
+					<ion-icon name="arrow-back"></ion-icon>
 				</button>
-			</ion-buttons> 
+			</ion-buttons>
 		</ion-toolbar>
 	</ion-header>
-	<ion-content class="custom">
+	<ion-content>
 		<ion-list>
-			<!--  <button menuClose ion-item (click)="openPage()">Test</button>-->
-			 <button class="test" ion-item *ngFor="let p of pages" (click)="openPage(p)">
-			 	<!-- <ion-icon [name]="p.icon"></ion-icon> -->
-        {{p.title}}
-      </button>
-
-      <button class="test" ion-item (click)="openPage(Video)">
-      	<ion-icon name="logo-youtube"></ion-icon>
-        Video
-      </button>
-      <button class="test" ion-item (click)="openPage(bhadas)">
-      	<ion-icon name="ios-globe"></ion-icon>
-        bhadas online blog
-      </button>
-      <button class="test" ion-item (click)="openPage(Video)">
-      	<ion-icon name="logo-rss"></ion-icon>
-        भड़ास ब्लाग
-      </button>
-      <button class="test" ion-item (click)="openPage(Video)">
-      	<ion-icon name="logo-facebook"></ion-icon>
-        फेसबुक
-      </button>
-      <button class="test" ion-item (click)="openPage(Video)">
-      	<ion-icon name="logo-twitter"></ion-icon>
-        ट्विटर
-      </button>
-      <button class="test" ion-item (click)="openPage(Video)">
-      	<ion-icon name="ios-link"></ion-icon>
-        सपोर्ट भड़ास
-      </button>
-      <button class="test" ion-item (click)="openPage(Video)">
-      	<ion-icon name="ios-link"></ion-icon>
-        डोनेट भड़ास
-      </button> 
-      <button class="test" ion-item (click)="openPage(Video)">
-      	<ion-icon name="ios-mail"></ion-icon>
-        शिकायत
-      </button> 
-
-      <button class="test" ion-item (click)="openPage(Video)">
-      	<ion-icon name="ios-link"></ion-icon>
-        वैधानिक
-      </button> 
-      <button class="test" ion-item (click)="openPage(Video)">
-      	<ion-icon name="ios-call"></ion-icon>
-       संपर्क
-      </button>
-
-      <button class="test" ion-item (click)="openPage(Video)">
-      	<ion-icon name="ios-link"></ion-icon>
-       हमारे बारे में
-      </button>
-      <button class="test" ion-item (click)="openPage(Video)">
-      	<ion-icon name="ios-link"></ion-icon>
-       ओल्ड भड़ास4मीडिया
-      </button>
-
-
+			<button ion-item no-lines *ngFor="let item of menuItems" (click)="openPage(item)">
+				<ion-icon [name]="item.icon"></ion-icon>
+				{{ item.itemName }}
+			</button>
 		</ion-list>
 	</ion-content>
 </ion-menu>

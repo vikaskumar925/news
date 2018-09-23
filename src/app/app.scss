@@ -14,23 +14,10 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
-  
-  
-  .custom {
-  background-color: #000 !important; /* This sets the background color*/
- }
- .test
- {
-background-color: #000 !important;
-color: #fff
- }
- .toolbar-md
- {
- padding: 0px;
- min-height: 0px;
- }
- .toolbar-background-md
- {
-     border-color: none; 
-     background: none; 
- }
+.item-md {
+    background-color:#000000;
+    color:#ffffff;
+}
+ion-menu .header{
+    border-bottom:1px solid #ffffff!important;
+}

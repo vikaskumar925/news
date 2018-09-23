@@ -1,108 +1,53 @@
 <ion-header>
-  <ion-navbar style="background-color: #000;
-    color: #fff;height: 150px;">
-    <button ion-button menuToggle style="color: #fff;    margin-bottom: 70px;">
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>
-      <img center src="/assets/imgs/logo3.jpg" alt="test" style="display:block;
-    margin: 0 auto;"/>
-    </ion-title>
-    <ion-searchbar *ngIf="isSearchbarOpened" showCancelButton="true" (ionCancel)="isSearchbarOpened=false"></ion-searchbar>
-    <ion-buttons  end>
-      <button style="color:#fff;margin-bottom: 90px;font-size: 15px;" ion-button icon-only *ngIf="!isSearchbarOpened" (click)="isSearchbarOpened=true">
-        <ion-icon name="search"></ion-icon>
-      </button>
-    </ion-buttons>
-  
-  
-  <ion-grid style="background-color: #000;
+	<ion-navbar>
+		<button ion-button menuToggle>
+			<ion-icon name="menu"></ion-icon>
+		</button>
+		<ion-title>
+			<ion-grid *ngIf="!isSearchbarOpened">
+				<ion-row>
+					<ion-col>Home</ion-col>
+					<ion-col><img center src="/assets/imgs/logo3.jpg" alt="test" /></ion-col>
+					<ion-col>
+						<ion-buttons end>
+							<button ion-button icon-only *ngIf="!isSearchbarOpened" (click)="isSearchbarOpened=true">
+								<ion-icon name="search"></ion-icon>
+							</button>
+						</ion-buttons>
+					</ion-col>
+				</ion-row>
+			</ion-grid>
+			<ion-searchbar *ngIf="isSearchbarOpened" showCancelButton="true" (ionCancel)="isSearchbarOpened=false"></ion-searchbar>
+		</ion-title>
+		<ion-grid style="background-color: #000;
     color: #fff;">
-    
-<ion-scroll scrollX="true" style="height: 62px;width: 100%;">
-<ion-row>
-  
-
-  <ion-col col-33 left>
- <div class=" test col-4" style="display: inline-block;padding-left: 32px;">
-   
-    <div (click)="openPage(Video)" style="font-size: 25px;">Home</div>
- </div>
- <div class=" test col-4" style="display: inline-block;padding-left: 32px;">
-   
-    <div (click)="openPage(Video)" style="font-size: 25px;">Jobs</div>
- </div>
- <div class=" test col-4" style="display: inline-block;padding-left: 32px;">
-   
-    <div (click)="openPage(Video)" style="font-size: 25px;font-family: 'Poppins', sans-serif;">आवाजाही</div>
- </div>
- <div class=" test col-4" style="display: inline-block;padding-left: 32px;">
-   
-    <div (click)="openPage(Video)" style="font-size: 25px;">टीवी</div>
- </div>
- <div class=" test col-4" style="display: inline-block;padding-left: 32px;">
-   
-    <div (click)="openPage(Video)" style="font-size: 25px;">सुख-दुख</div>
- </div>
- <div class=" test col-4" style="display: inline-block;padding-left: 32px;">
-   
-    <div (click)="openPage(Video)" style="font-size: 25px;">इंटरव्यू</div>
- </div>
- <div class=" test col-4" style="display: inline-block;padding-left: 32px;">
-   
-    <div (click)="openPage(Video)" style="font-size: 25px;">सियासत</div>
- </div>
-
- <div class=" test col-4" style="display: inline-block;padding-left: 32px;">
-   
-    <div (click)="openPage(Video)" style="font-size: 25px;">इंटरनेट-सिनेमा</div>
- </div>
- <div class=" test col-4" style="display: inline-block;padding-left: 32px;">
-   
-    <div (click)="openPage(Video)" style="font-size: 25px;">आयोजन</div>
- </div>
- <div class=" test col-4" style="display: inline-block;padding-left: 32px;">
-   
-    <div (click)="openPage(Video)" style="font-size: 25px;">साहित्य</div>
- </div>
- <div class=" test col-4" style="display: inline-block;padding-left: 32px;">
-   
-    <div (click)="openPage(Video)" style="font-size: 25px;">राज्य</div>
- </div>
-   </ion-col>
-   
-</ion-row>
-</ion-scroll>
-</ion-grid>
-
-
-    
-  </ion-navbar>
+			<ion-scroll scrollX="true" style="height: 62px;width: 100%;">
+				<ion-row>
+					<ion-col col-33 left>
+						<div class=" test col-4" style="display: inline-block;padding-left: 32px;">
+								<div style="font-size: 25px;">Home</div>
+							</div>
+						<div class=" test col-4" style="display: inline-block;padding-left: 32px;" *ngFor="let category of categories">
+							<div (click)="openCatPage(category)" *ngIf= "category.name!='Uncategorised'" style="font-size: 25px;">{{ category.name}}</div>
+						</div>
+					</ion-col>
+				</ion-row>
+			</ion-scroll>
+		</ion-grid>
+	</ion-navbar>
 </ion-header>
-<ion-content padding >
-  <ion-grid *ngFor="let post of posts">
-    <ion-row (click)="home()">
-    <ion-col style="cursor: pointer;" col-sm-4 col-lg-1>
-    <ion-img style="width: 80px;height: 80px;display:block;background: none;" src="../assets/imgs/blog1.jpg"></ion-img>
-</ion-col>
-<ion-col style="cursor: pointer;" col-sm-8>
-   <h2 style="font-family: 'Poppins', sans-serif;" [innerHTML]="post.title.rendered"></h2>
- </ion-col>
-  <!-- <ion-col col-sm-12 col-lg-12 style="margin-left: 97px;
-    position: absolute;
-    margin-top: 23px;
-    cursor: pointer;">
-   <p style="font-family: 'Poppins', sans-serif;
-    font-size: 18px;
-    font-weight: 300;
-    line-height: 1.7em;
-    color: #999;" [innerHTML]="post.content.rendered"></p>
-   </ion-col> -->
-
-</ion-row>
-    
-</ion-grid>
- <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
-    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data..."></ion-infinite-scroll-content>
-  </ion-infinite-scroll>
+<ion-content padding>
+	<ion-grid>
+		<ion-row (click)="openPost(post)" *ngFor="let post of posts">
+			<ion-col style="cursor: pointer;" col-sm-4 col-lg-1>
+				<ion-img style="width: 80px;height: 80px;display:block;background: none;" [src]="post.featuredimage"></ion-img>
+			</ion-col>
+			<ion-col style="cursor: pointer;" col-sm-8>
+				<h2 style="font-family: 'Poppins', sans-serif;" [innerHTML]="post.title.rendered"></h2>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+	<ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+		<ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data..."></ion-infinite-scroll-content>
+	</ion-infinite-scroll>
 </ion-content>

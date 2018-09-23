@@ -1,69 +1,27 @@
-<!--
-  Generated template for the PostDetailsPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
-  <ion-navbar>
-    <ion-title></ion-title>
-  </ion-navbar>
-
+	<ion-navbar>
+		<ion-title [innerHTML]="post.title.rendered"></ion-title>
+	</ion-navbar>
 </ion-header>
-
-
 <ion-content padding>
-<ion-grid>
-    <ion-row>
-       <ion-col  col-lg-12>
-        <ion-img style="height:300px;width:1260px;display: -webkit-inline-box;
-    background: none;margin-left: 20px;" src="../assets/imgs/blog1.jpg"></ion-img>
-       </ion-col>
-        <ion-col style="margin-left: 20px;" col-lg-12>
-                 <h2 style="font-size: 40px;">वर्णन अपने कराना बेंगलूर व्याख्यान विवरन क्षमता सभिसमज सिद्धांत उसके</h2>
-       </ion-col>
-       <ion-col style="margin-left: 20px;" col-lg-12>
-                 <span style="font-size: 16px;font-weight: 400;line-height: 1.5;font-family: 'Poppins', sans-serif;">by</span>
-                 <span style="font-size: 16px;font-weight: 400;line-height: 1.5;font-family: 'Poppins', sans-serif;color: #F17F06;text-decoration: underline;">B4M</span>
-                <span style="font-size: 16px;font-weight: 400;line-height: 1.5;font-family: 'Poppins', sans-serif;">- 24 mins ago</span>
-                <span style="font-size: 16px;font-weight: 400;line-height: 1.5;font-family: 'Poppins', sans-serif;color: #343a40;
-    text-decoration: underline;">हिमाचल प्रदेश</span>
-       </ion-col>
-       <ion-col style="margin-left:20px;" col-lg-11>
-        <h2 style="font-family: 'Poppins', sans-serif;
-    font-size: 17px;
-    font-weight: 200;
-    line-height: 1.7em;
-    color: #999;
-    margin-top: 0;
-    margin-bottom: 1rem;text-align: justify;">सहयोग जैसी वास्तव विश्लेषण प्राण अधिक पुस्तक अत्यंत नयेलिए हमेहो। चुनने बहतर बढाता पढाए रहारुप मेंभटृ केन्द्रित नयेलिए प्रव्रुति बीसबतेबोध मेमत देखने कराना दारी मुश्किल विकासक्षमता खरिदे जिम्मे अविरोधता बिन्दुओमे लिये भाषा करता। मुख्यतह सार्वजनिक प्राधिकरन स्थापित समस्याओ ।क वर्णन शुरुआत ब्रौशर विवरन २४भि</h2>
-
-              <h2 style="font-family: 'Poppins', sans-serif;
-    font-size: 17px;
-    font-weight: 200;
-    line-height: 1.7em;
-    color: #999;
-    margin-top: 0;
-    margin-bottom: 1rem;text-align: justify;">अथवा हमारि वेबजाल बिन्दुओ दस्तावेज किया होसके मानसिक गोपनीयता भारत तकरीबन पासपाई सुस्पश्ट जानते स्थिति लचकनहि मुश्किल प्राण सुना वेबजाल परिभाषित सदस्य समूह बेंगलूर व्रुद्धि वास्तविक वर्णन यधपि कैसे रहारुप निर्माण विकेन्द्रियकरण समजते भाषा पहोचाना सुचनाचलचित्र जानते</h2>
-
-              <h2 style="font-family: 'Poppins', sans-serif;
-    font-size: 17px;
-    font-weight: 200;
-    line-height: 1.7em;
-    color: #999;
-    margin-top: 0;
-    margin-bottom: 1rem;text-align: justify;">जिम्मे मुश्किल संपुर्ण समाजो बहतर रिती ढांचा किएलोग भोगोलिक सुचनाचलचित्र सक्षम संस्था प्राप्त सुचनाचलचित्र कलइस है।अभी यायेका करके(विशेष पुर्व कलइस भाषाओ सेऔर सहायता पत्रिका बनाने शारिरिक अविरोधता आंतरकार्यक्षमता जाने करने ध्येय परिवहन एकत्रित देते सारांश वेबजाल स्वतंत्र भाषाओ कीने गटकउसि दर्शाता पहोच। देखने दिशामे असक्षम जानकारी चाहे</h2>
-
-              <h2 style="font-family: 'Poppins', sans-serif;
-    font-size: 17px;
-    font-weight: 200;
-    line-height: 1.7em;
-    color: #999;
-    margin-top: 0;
-    margin-bottom: 1rem;text-align: justify;">रखति करता। बीसबतेबोध कार्यकर्ता भारत उपलब्ध उपेक्ष अधिकांश बाटते लक्षण आवश्यक विकसित आपको विश्व किके तकरीबन उसीएक् देते सहयोग माध्यम विकेन्द्रित वास्तविक स्वतंत्रता सकते कार्य उन्हे वैश्विक व्याख्या रखति समूह बनाति लचकनहि अविरोधता मार्गदर्शन दिनांक व्याख्या प्रोत्साहित विकास भाषए</h2>
-
-       </ion-col>
-   </ion-row>
-</ion-grid>
+	<ion-grid>
+		<ion-row>
+			<ion-col col-lg-12>
+				<ion-img style="height:300px;width:1260px;display: -webkit-inline-box;
+margin-left: 20px;" [src]="post.featuredimage"></ion-img>
+			</ion-col>
+			<ion-col style="margin-left: 20px;" col-lg-12>
+				<h2 style="font-size: 40px;" [innerHTML]="post.title.rendered"></h2>
+			</ion-col>
+			<ion-col style="margin-left: 20px;" col-lg-12>
+				<span style="font-size: 16px;font-weight: 400;line-height: 1.5;font-family: 'Poppins', sans-serif;">by</span>
+				<span style="font-size: 16px;font-weight: 400;line-height: 1.5;font-family: 'Poppins', sans-serif;color: #F17F06;text-decoration: underline;">B4M</span>
+				<span style="font-size: 16px;font-weight: 400;line-height: 1.5;font-family: 'Poppins', sans-serif;">- 24 mins ago</span>
+				<span style="font-size: 16px;font-weight: 400;line-height: 1.5;font-family: 'Poppins', sans-serif;color: #343a40;
+    text-decoration: underline;">हिमाचल
+					प्रदेश</span>
+			</ion-col>
+			<ion-col style="margin-left:20px;" [innerHTML]="post.content.rendered"></ion-col>
+		</ion-row>
+	</ion-grid>
 </ion-content>
