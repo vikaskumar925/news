@@ -1,0 +1,38 @@
+<ion-header>
+	<ion-navbar>
+		<button ion-button menuToggle>
+			<ion-icon name="menu"></ion-icon>
+		</button>
+		<ion-title>
+			<ion-grid *ngIf="!isSearchbarOpened">
+				<ion-row>
+					<ion-col>Home</ion-col>
+					<ion-col><img center src="/assets/imgs/logo3.jpg" alt="test" /></ion-col>
+					<ion-col>
+						<ion-buttons end>
+							<button ion-button icon-only *ngIf="!isSearchbarOpened" (click)="isSearchbarOpened=true">
+								<ion-icon name="search"></ion-icon>
+							</button>
+						</ion-buttons>
+					</ion-col>
+				</ion-row>
+			</ion-grid>
+			<ion-searchbar *ngIf="isSearchbarOpened" showCancelButton="true" (ionCancel)="isSearchbarOpened=false"></ion-searchbar>
+		</ion-title>
+		<ion-grid style="background-color: #000;
+    color: #fff;">
+			<ion-scroll scrollX="true" style="height: 62px;width: 100%;">
+				<ion-row>
+					<ion-col col-33 left>
+						<div class=" test col-4" style="display: inline-block;padding-left: 32px;">
+								<div style="font-size: 25px;">Home</div>
+							</div>
+						<div class=" test col-4" style="display: inline-block;padding-left: 32px;" *ngFor="let category of categories">
+							<div (click)="openCatPage(category)" *ngIf= "category.name!='Uncategorised'" style="font-size: 25px;">{{ category.name}}</div>
+						</div>
+					</ion-col>
+				</ion-row>
+			</ion-scroll>
+		</ion-grid>
+	</ion-navbar>
+</ion-header>

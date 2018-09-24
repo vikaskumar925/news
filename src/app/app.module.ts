@@ -9,18 +9,20 @@ import { MyApp } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { ApiProvider } from '../providers/api/api';
+import { ComponentsModule } from '../components/components.module';
 
 
 @NgModule({
 	declarations: [
 		MyApp,
 		HomePage,
-		PostDetailsPage
+		PostDetailsPage,
 	],
 	imports: [
 		BrowserModule,
 		IonicModule.forRoot(MyApp),
 		HttpClientModule,
+		ComponentsModule
 	],
 	bootstrap: [IonicApp],
 	entryComponents: [

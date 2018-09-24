@@ -1,22 +1,20 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController } from 'ionic-angular';
-import { PostDetailsPage } from '../post-details/post-details';
+import { PostDetailsPage } from './../../pages/post-details/post-details';
+import { NavController } from 'ionic-angular';
 import { ApiProvider } from './../../providers/api/api';
-import 'rxjs/add/operator/map';
+import { Component } from '@angular/core';
 
-@IonicPage()
 @Component({
-    selector: 'page-home',
-    templateUrl: 'home.html',
+	selector: 'posts',
+	templateUrl: 'posts.html'
 })
-
-export class HomePage {
-    posts: any = [];
+export class PostsComponent {
+	posts: any;
     offset: number = 0;
     constructor(public navCtrl: NavController,
         private api:ApiProvider) {
-    }
-    openPost(post) {
+		this.posts=[];
+	}
+	openPost(post) {
         this.navCtrl.push(PostDetailsPage,{
             post:post
         });
@@ -24,7 +22,7 @@ export class HomePage {
     ionViewWillEnter(){
         this.posts = this.api.getPosts(this.posts);
     }
-    loadMoreData() {
+	loadMoreData() {
         this.posts = this.api.getPosts(this.posts, this.offset);
     }
     doInfinite(infiniteScroll) {
@@ -34,4 +32,5 @@ export class HomePage {
             infiniteScroll.complete();
         }, 500);
     }
+
 }
