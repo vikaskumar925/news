@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { ApiProvider } from '../providers/api/api';
 import { ComponentsModule } from '../components/components.module';
+import { IonicStorageModule } from '@ionic/storage';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { ComponentsModule } from '../components/components.module';
 		BrowserModule,
 		IonicModule.forRoot(MyApp),
 		HttpClientModule,
-		ComponentsModule
+		ComponentsModule,
+		IonicStorageModule.forRoot(),
 	],
 	bootstrap: [IonicApp],
 	entryComponents: [

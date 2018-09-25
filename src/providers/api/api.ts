@@ -36,12 +36,15 @@ export class ApiProvider {
 			});
 		return this.data;
 	}
-	getSearchPosts(searchTerms) {
-		this.http.get<any>(this.baseUrl+'posts?search='+searchTerms)
-			.subscribe(response=>{
-				this.data = response;
-			});
-		return this.data;
+	getSearchPosts(data,searchTerm,offset=0) {
+		this.http.get<any>(this.baseUrl+'posts?search='+searchTerm+'&offset='+offset)
+			.map(response =>{
+				for (let item of response){
+					data.push(item);
+				}
+			})
+			.subscribe();
+		return data;
 	}
 	getPostDetail(id){
 		/* this.http.get<any>(this.baseUrl+'posts/'+id)

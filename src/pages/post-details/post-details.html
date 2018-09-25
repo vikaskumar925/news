@@ -1,6 +1,29 @@
 <ion-header>
 	<ion-navbar>
-		<ion-title [innerHTML]="post.title.rendered"></ion-title>
+		<ion-title>
+			<ion-row>
+				<ion-col [innerHTML]="post.title.rendered"></ion-col>
+				<ion-col>
+					<ion-buttons *ngIf="!isBookmark">
+							<button ion-button icon-only (click)="addBookmark()">
+									<ion-icon  name="bookmark" ></ion-icon>
+							</button>
+					</ion-buttons>
+					<ion-buttons *ngIf="isBookmark">
+						<button ion-button icon-only (click)="removeBookmark()">
+								<ion-icon  name="bookmark" ></ion-icon>
+						</button>
+					</ion-buttons>
+				</ion-col>
+				<ion-col>
+					<ion-buttons>
+						<button ion-button icon-only (click)="share()">
+							<ion-icon name="share"></ion-icon>
+						</button>
+					</ion-buttons>
+				</ion-col>
+			</ion-row>
+		</ion-title>
 	</ion-navbar>
 </ion-header>
 <ion-content padding>

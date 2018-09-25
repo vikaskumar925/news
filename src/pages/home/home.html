@@ -1,5 +1,13 @@
-<header-menu type="test"></header-menu>
+<header-menu></header-menu>
 <ion-content padding>
+	<ion-refresher (ionRefresh)="doRefresh($event)">
+		<ion-refresher-content
+			pullingIcon="arrow-dropdown"
+			pullingText="Pull to refresh"
+			refreshingSpinner="circles"
+			refreshingText="Refreshing...">
+		</ion-refresher-content>
+	</ion-refresher>
 	<ion-grid>
 		<ion-row (click)="openPost(post)" *ngFor="let post of posts">
 			<ion-col style="cursor: pointer;" col-sm-4 col-lg-1>

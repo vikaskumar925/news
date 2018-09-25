@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams} from 'ionic-angular';
+import { Storage } from '@ionic/storage';
 
 @IonicPage()
 @Component({
@@ -8,9 +9,19 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class PostDetailsPage {
 	post:any;
-
-	constructor(public navCtrl: NavController, public navParams: NavParams) {
+	isBookmark:boolean = false;
+	constructor(public navCtrl: NavController, public navParams: NavParams,private storage:Storage) {
 		this.post = this.navParams.get('post');
+	}
+	addBookmark(){
+		this.storage.set(this.post.id.toString(),this.post);
+		console.log(this.storage.get(this.post.id.toString()));
+	}
+	removeBookmark(){
+		console.log("test");
+	}
+	share(){
+		console.log("yuae");
 	}
 
 }
