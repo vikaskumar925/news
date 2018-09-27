@@ -1,6 +1,6 @@
+import { BookmarkProvider } from './../../providers/bookmark/bookmark';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams} from 'ionic-angular';
-import { Storage } from '@ionic/storage';
 
 @IonicPage()
 @Component({
@@ -10,15 +10,19 @@ import { Storage } from '@ionic/storage';
 export class PostDetailsPage {
 	post:any;
 	isBookmark:boolean = false;
-	constructor(public navCtrl: NavController, public navParams: NavParams,private storage:Storage) {
+	constructor(public navCtrl: NavController, public navParams: NavParams,private bookmark:BookmarkProvider) {
 		this.post = this.navParams.get('post');
+		this.bookmark.isBookmark(this.post.id.toString()).then(isMarked => {
+			this.isBookmark = isMarked;
+		})
 	}
 	addBookmark(){
-		this.storage.set(this.post.id.toString(),this.post);
-		console.log(this.storage.get(this.post.id.toString()));
+		this.bookmark.bookmarkPost(this.post,this.post.id.toString());
+		this.isBookmark = true;
 	}
 	removeBookmark(){
-		console.log("test");
+		this.bookmark.removeBookmarkPost(this.post.id.toString());
+		this.isBookmark = false;
 	}
 	share(){
 		console.log("yuae");

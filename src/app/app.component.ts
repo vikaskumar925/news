@@ -1,3 +1,4 @@
+import { SavedPostsPage } from './../pages/saved-posts/saved-posts';
 import { Component, ViewChild } from '@angular/core';
 import { Platform, MenuController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -30,7 +31,7 @@ export class MyApp {
 			{ title: 'Home', component: HomePage },
 		];
 		this.menuItems =[
-			{ itemName:'Saved Posts', type:'page',icon:'bookmark',},
+			{ itemName:'Saved Posts', type:'page',icon:'bookmark',component:SavedPostsPage},
 			{ itemName:'Home', type:'page',icon:'home',component:HomePage},
 			{ itemName:'Video', type:'link',icon:'logo-youtube',url:'https://www.youtube.com/user/bhadas4media'},
 			{ itemName:'Bhadas online blog', type:'link',icon:'ios-globe',url:'https://www.bhadasonline.blogspot.in'},

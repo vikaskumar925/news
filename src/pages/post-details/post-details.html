@@ -4,13 +4,11 @@
 			<ion-row>
 				<ion-col [innerHTML]="post.title.rendered"></ion-col>
 				<ion-col>
-					<ion-buttons *ngIf="!isBookmark">
-							<button ion-button icon-only (click)="addBookmark()">
-									<ion-icon  name="bookmark" ></ion-icon>
-							</button>
-					</ion-buttons>
-					<ion-buttons *ngIf="isBookmark">
-						<button ion-button icon-only (click)="removeBookmark()">
+					<ion-buttons>
+						<button ion-button icon-only *ngIf="!isBookmark" (click)="addBookmark()">
+								<ion-icon  name="ios-bookmark-outline" ></ion-icon>
+						</button>
+						<button ion-button icon-only *ngIf="isBookmark" (click)="removeBookmark()">
 								<ion-icon  name="bookmark" ></ion-icon>
 						</button>
 					</ion-buttons>

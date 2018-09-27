@@ -1,3 +1,4 @@
+import { SavedPostsPage } from './../pages/saved-posts/saved-posts';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -11,6 +12,7 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { ApiProvider } from '../providers/api/api';
 import { ComponentsModule } from '../components/components.module';
 import { IonicStorageModule } from '@ionic/storage';
+import { BookmarkProvider } from '../providers/bookmark/bookmark';
 
 
 @NgModule({
@@ -18,6 +20,7 @@ import { IonicStorageModule } from '@ionic/storage';
 		MyApp,
 		HomePage,
 		PostDetailsPage,
+		SavedPostsPage
 	],
 	imports: [
 		BrowserModule,
@@ -30,14 +33,16 @@ import { IonicStorageModule } from '@ionic/storage';
 	entryComponents: [
 		MyApp,
 		HomePage,
-		PostDetailsPage
+		PostDetailsPage,
+		SavedPostsPage
 	],
 	providers: [
 		StatusBar,
 		SplashScreen,
 		{ provide: ErrorHandler, useClass: IonicErrorHandler },
 		ApiProvider,
-		InAppBrowser
+		InAppBrowser,
+    	BookmarkProvider
 	]
 })
 export class AppModule {
