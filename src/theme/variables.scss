@@ -92,6 +92,10 @@ $colors: (
 $toolbar-md-button-font-size : 1.5rem;
 $toolbar-md-title-text-color:map-get($colors, white);
 $toolbar-background:#000000;
-$toolbar-text-color:#ffffff;
+$toolbar-md-text-color:#ffffff;
 $menu-md-background:#000000;
+$searchbar-md-background-color:#000000;
+$searchbar-md-input-background-color:#000000;
+$searchbar-md-input-placeholder-color:white;
+$searchbar-md-input-text-color:white;
 /* Custom scss for Navbar End */

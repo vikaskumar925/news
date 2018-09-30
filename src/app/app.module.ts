@@ -13,7 +13,7 @@ import { ApiProvider } from '../providers/api/api';
 import { ComponentsModule } from '../components/components.module';
 import { IonicStorageModule } from '@ionic/storage';
 import { BookmarkProvider } from '../providers/bookmark/bookmark';
-
+import { SocialSharing } from '@ionic-native/social-sharing';
 
 @NgModule({
 	declarations: [
@@ -42,7 +42,8 @@ import { BookmarkProvider } from '../providers/bookmark/bookmark';
 		{ provide: ErrorHandler, useClass: IonicErrorHandler },
 		ApiProvider,
 		InAppBrowser,
-    	BookmarkProvider
+		BookmarkProvider,
+		SocialSharing,
 	]
 })
 export class AppModule {

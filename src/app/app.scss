@@ -21,3 +21,7 @@
 ion-menu .header{
     border-bottom:1px solid #ffffff!important;
 }
+::-webkit-scrollbar,
+*::-webkit-scrollbar {
+  display: none;
+}

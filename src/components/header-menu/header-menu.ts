@@ -11,7 +11,7 @@ export class HeaderMenuComponent implements OnInit {
 	categories:any =[];
 	offset: number = 0;
 	data:any=[];
-	
+	title:string = 'Home';
 	isSearchbarOpened:boolean = false;
 	constructor(private api:ApiProvider, private nav:NavController,private events:Events) {
 	}
