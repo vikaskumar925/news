@@ -22,7 +22,9 @@ export class ApiProvider {
 		this.http.get<[any]>(this.baseUrl+'posts?offset='+offset)
 			.map(response =>{
 				for (let item of response){
-					data.push(item);
+					console.log(this.getCategoryDetail(item.categories[0]));
+					//data.push(item);
+					//console.log(item);
 				}
 			})
 			.subscribe();
@@ -53,5 +55,17 @@ export class ApiProvider {
 			return this.data; */
 	}
 
+	getCategoryDetail(id){
+console.log(this.baseUrl+'categories/'+id);
+	let cat:object;
+			this.http.get<any>(this.baseUrl+'categories/'+id)
+			 .map(response =>{
+			 cat = response;
+			 console.log(response)
+			 })
+			 .subscribe();
+			 return this.data;
+			
+	}
 
 }

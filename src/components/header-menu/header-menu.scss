@@ -5,3 +5,16 @@
 .searchbar-search-icon{
     float:right;
 }
+.searchbar-search-icon,.searchbar-md-cancel.button-clear{
+	display:none!important;
+}
+.toolbar-title-md{
+	height: 70px;
+}
+ion-menu[side=left] > .menu-inner .toolbar-title-md{
+	height: auto;
+	text-align: center;
+}
+.searchbar-show-cancel .searchbar-clear-icon.button-clear{
+	display:block!important;
+}

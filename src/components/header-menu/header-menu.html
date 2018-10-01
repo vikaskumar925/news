@@ -9,14 +9,14 @@
 				<ion-col><img center src="/assets/imgs/logo3.jpg" alt="test" /></ion-col>
 				<ion-col>
 					<ion-buttons end>
-						<button ion-button icon-only *ngIf="!isSearchbarOpened" (click)="isSearchbarOpened=true">
+						<button ion-button icon-only *ngIf="!isSearchbarOpened" (click)="isSearchbarOpened=true;">
 							<ion-icon name="search"></ion-icon>
 						</button>
 					</ion-buttons>
 				</ion-col>
 			</ion-row>
 		</ion-grid>
-		<ion-searchbar *ngIf="isSearchbarOpened" placeholder="Search posts" (ionInput)="getSearch($event)" (ionCancel)="isSearchbarOpened=false"></ion-searchbar>
+		<ion-searchbar *ngIf="isSearchbarOpened" placeholder="Search posts" (ionInput)="getSearch($event)" [showCancelButton]="true" (ionClear)="isSearchbarOpened=false"></ion-searchbar>
 	</ion-title>
 	<ion-grid style="color: #fff;">
 		<ion-scroll scrollX="true" style="height: 40px;width: 100%;">

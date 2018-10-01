@@ -7,6 +7,7 @@ import { NavController } from 'ionic-angular';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { HomePage } from '../pages/home/home';
 import { PostDetailsPage } from '../pages/post-details/post-details';
+
 @Component({
 	templateUrl: 'app.html'
 })
