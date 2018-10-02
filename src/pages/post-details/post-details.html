@@ -28,17 +28,14 @@
 	<ion-grid>
 		<ion-row>
 			<ion-col col-lg-12>
-			<ion-img style="height:300px;width:1260px;display: -webkit-inline-box;
+			<img style="height:300px;width:1260px;display: -webkit-inline-box;
 				margin-left: 20px;"
 				*ngIf = "post.featuredimage"
-				[src]="post.featuredimage">
-				</ion-img>
-				<ion-img style="height:300px;width:1260px;display: -webkit-inline-box;
+				[src]="post.featuredimage" />
+				<img style="height:300px;width:1260px;display: -webkit-inline-box;
 				margin-left: 20px;" 
 				*ngIf = "!post.featuredimage"
-				src="/assets/imgs/logo2.png">
-				</ion-img>
-
+				src="/assets/imgs/logo2.png" />
 			</ion-col>
 			<ion-col style="margin-left: 20px;" col-lg-12>
 				<h2 style="font-size: 40px;" [innerHTML]="post.title.rendered"></h2>

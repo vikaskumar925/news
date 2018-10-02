@@ -14,6 +14,7 @@ import { ComponentsModule } from '../components/components.module';
 import { IonicStorageModule } from '@ionic/storage';
 import { BookmarkProvider } from '../providers/bookmark/bookmark';
 import { SocialSharing } from '@ionic-native/social-sharing';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
 	declarations: [
@@ -28,6 +29,7 @@ import { SocialSharing } from '@ionic-native/social-sharing';
 		HttpClientModule,
 		ComponentsModule,
 		IonicStorageModule.forRoot(),
+		BrowserAnimationsModule,
 	],
 	bootstrap: [IonicApp],
 	entryComponents: [
