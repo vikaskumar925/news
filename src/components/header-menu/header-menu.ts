@@ -36,7 +36,7 @@ export class HeaderMenuComponent implements OnInit {
 	}
 	getSearch(e:any){
 		this.data = this.api.getSearchPosts(this.data,e.target.value);
-		this.events.publish('search-result',this.data);
+		this.events.publish('search-result',{data:this.data, searchTerm:e.target.value});
 	}
 	searchbarOpen(){
 		this.searchbarState = 'visible';

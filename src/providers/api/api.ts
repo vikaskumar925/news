@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/mergeMap';
 
 @Injectable()
 export class ApiProvider {
@@ -9,7 +10,7 @@ export class ApiProvider {
 	constructor(public http: HttpClient) {}
 
 	getCategories() {
-		this.http.get<any>(this.baseUrl+'categories?per_page=30')
+		this.http.get<[any]>(this.baseUrl+'categories?per_page=30')
 			.map(response =>{
 				for (let item of response){
 					this.data.push(item);
@@ -19,17 +20,7 @@ export class ApiProvider {
 		return this.data;
 	}
 	getPosts(data:Array<any>, offset = 0) {
-		this.http.get<[any]>(this.baseUrl+'posts?offset='+offset)
-			.map(response =>{
-				for (let item of response){
-					//console.log(this.getCategoryDetail(item.categories[0]));
-					data.push(item);
-					//console.log(item);
-				}
-			})
-			.subscribe();
-		return data;
-		
+		return this.http.get<[any]>(this.baseUrl+'posts?offset='+offset);	
 	}
 	getCategoryPosts(categoryId) {
 		this.http.get<any>(this.baseUrl+'posts?categories='+categoryId)
@@ -56,16 +47,8 @@ export class ApiProvider {
 	}
 
 	getCategoryDetail(id){
-console.log(this.baseUrl+'categories/'+id);
-	let cat:object;
-			this.http.get<any>(this.baseUrl+'categories/'+id)
-			 .map(response =>{
-			 cat = response;
-			 console.log(response)
-			 })
-			 .subscribe();
-			 return this.data;
-			
+		return this.http.get<any>(this.baseUrl+'categories/'+id);
+	
 	}
 
 }
