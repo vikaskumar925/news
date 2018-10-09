@@ -1,22 +1,23 @@
 <ion-header>
 	<ion-navbar>
 		<ion-title>
-			<ion-row>
-				<ion-col [innerHTML]="post.title.rendered"></ion-col>
-				<ion-col>
+			<ion-row >
+				<ion-col col-10 style="font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem;padding: 0px;top:24px;position: relative;left: -10px;overflow: hidden;display: -webkit-box;-webkit-line-clamp: 3;-webkit-box-orient: vertical" [innerHTML]="post.title.rendered"></ion-col>
+				<ion-col col-1 style="bottom: 4px;right:8px;" >
 					<ion-buttons>
-						<button ion-button icon-only *ngIf="!isBookmark" (click)="addBookmark()">
-								<ion-icon  name="ios-bookmark-outline" ></ion-icon>
+						<button  ion-button icon-only *ngIf="!isBookmark" (click)="addBookmark()">
+								<ion-icon style="font-size:18px;" name="ios-bookmark-outline" ></ion-icon>
 						</button>
-						<button ion-button icon-only *ngIf="isBookmark" (click)="removeBookmark()">
-								<ion-icon  name="bookmark" ></ion-icon>
+						<button  ion-button icon-only *ngIf="isBookmark" (click)="removeBookmark()">
+								<ion-icon style="font-size:18px;" name="bookmark" ></ion-icon>
 						</button>
 					</ion-buttons>
 				</ion-col>
-				<ion-col>
+				<ion-col col-1 style="bottom: 4px;right: 2px;" >
 					<ion-buttons>
 						<button ion-button icon-only (click)="share()">
-							<ion-icon name="share"></ion-icon>
+							<ion-icon style="font-size:18px;" name="share"></ion-icon>
 						</button>
 					</ion-buttons>
 				</ion-col>
@@ -26,29 +27,29 @@
 </ion-header>
 <ion-content padding>
 	<ion-grid>
-		<ion-row>
-			<ion-col col-lg-12>
+		<ion-row col-12>
+			<ion-col col-12>
 			<img style="height:300px;width:1260px;display: -webkit-inline-box;
-				margin-left: 20px;"
+				"
 				*ngIf = "post.featuredimage"
 				[src]="post.featuredimage" />
 				<img style="height:300px;width:1260px;display: -webkit-inline-box;
-				margin-left: 20px;" 
+				" 
 				*ngIf = "!post.featuredimage"
 				src="/assets/imgs/logo2.png" />
 			</ion-col>
-			<ion-col style="margin-left: 20px;" col-lg-12>
-				<h2 style="font-size: 40px;" [innerHTML]="post.title.rendered"></h2>
+			 <!-- <ion-col col-12>
+				<h2 style="font-size: 20px;" [innerHTML]="post.title.rendered"></h2>
 			</ion-col>
-			<ion-col style="margin-left: 20px;" col-lg-12>
+			<ion-col col-12>
 				<span style="font-size: 16px;font-weight: 400;line-height: 1.5;font-family: 'Poppins', sans-serif;">by</span>
 				<span style="font-size: 16px;font-weight: 400;line-height: 1.5;font-family: 'Poppins', sans-serif;color: #F17F06;text-decoration: underline;">B4M</span>
 				<span style="font-size: 16px;font-weight: 400;line-height: 1.5;font-family: 'Poppins', sans-serif;">- 24 mins ago</span>
 				<span style="font-size: 16px;font-weight: 400;line-height: 1.5;font-family: 'Poppins', sans-serif;color: #343a40;
     text-decoration: underline;">हिमाचल
 					प्रदेश</span>
-			</ion-col>
-			<ion-col style="margin-left:20px;" [innerHTML]="post.content.rendered"></ion-col>
+			</ion-col> -->
+			<ion-col  col-12 [innerHTML]="post.content.rendered"  #message></ion-col>
 		</ion-row>
 	</ion-grid>
 </ion-content>

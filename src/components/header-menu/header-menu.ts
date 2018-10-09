@@ -31,12 +31,17 @@ export class HeaderMenuComponent implements OnInit {
 	ngOnInit(){
         this.categories = this.api.getCategories();
 	}
-	openCatPage(category){
+	// openCatPage(category){
 		
+	// }
+	openCatPage(category){
+		this.data=this.api.getCategoryPosts(this.data,category.id, this.offset);
+		console.log(this.data);
+		this.events.publish('search-category',this.data);
 	}
 	getSearch(e:any){
 		this.data = this.api.getSearchPosts(this.data,e.target.value);
-		this.events.publish('search-result',{data:this.data, searchTerm:e.target.value});
+		this.events.publish('search-result',this.data);
 	}
 	searchbarOpen(){
 		this.searchbarState = 'visible';

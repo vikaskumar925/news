@@ -1,5 +1,5 @@
 import { BookmarkProvider } from './../../providers/bookmark/bookmark';
-import { Component } from '@angular/core';
+import { Component, ViewChild , ElementRef } from '@angular/core';
 import { IonicPage, NavController, NavParams} from 'ionic-angular';
 import { SocialSharing } from '@ionic-native/social-sharing';
 
@@ -11,12 +11,13 @@ import { SocialSharing } from '@ionic-native/social-sharing';
 export class PostDetailsPage {
 	post:any;
 	isBookmark:boolean = false;
+	@ViewChild('message') message:ElementRef;
 	constructor(public navCtrl: NavController, 
 		public navParams: NavParams, 
 		private bookmark:BookmarkProvider, 
 		private socialSharing: SocialSharing) {
 		this.post = this.navParams.get('post');
-		this.bookmark.isBookmark(this.post.id.toString()).then(isMarked => {
+		this.bookmark.isBookmark(this.post.id).then(isMarked => {
 			this.isBookmark = isMarked;
 		});
 	}
@@ -29,8 +30,9 @@ export class PostDetailsPage {
 		this.isBookmark = false;
 	}
 	share(){
+	console.log(this.message.nativeElement.innerText);
 		this.socialSharing.shareWithOptions({
-			message:this.post.content.rendered,
+			message:this.message.nativeElement.innerText,
 			subject: this.post.title.rendered,
 			url:this.post.link,
 		});

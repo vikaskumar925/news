@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/mergeMap';
 
 @Injectable()
 export class ApiProvider {
@@ -10,7 +9,7 @@ export class ApiProvider {
 	constructor(public http: HttpClient) {}
 
 	getCategories() {
-		this.http.get<[any]>(this.baseUrl+'categories?per_page=30')
+		this.http.get<any>(this.baseUrl+'categories?per_page=30')
 			.map(response =>{
 				for (let item of response){
 					this.data.push(item);
@@ -20,14 +19,35 @@ export class ApiProvider {
 		return this.data;
 	}
 	getPosts(data:Array<any>, offset = 0) {
-		return this.http.get<[any]>(this.baseUrl+'posts?offset='+offset);	
+		this.http.get<[any]>(this.baseUrl+'posts?offset='+offset)
+			.map(response =>{
+				for (let item of response){
+					//console.log(this.getCategoryDetail(item.categories[0]));
+					data.push(item);
+					//console.log(item);
+				}
+			})
+			.subscribe();
+		return data;
+		
 	}
-	getCategoryPosts(categoryId) {
-		this.http.get<any>(this.baseUrl+'posts?categories='+categoryId)
-			.subscribe(response=>{
-				this.data = response;
-			});
-		return this.data;
+	// getCategoryPosts(categoryId) {
+	// 	this.http.get<any>(this.baseUrl+'posts?categories='+categoryId)
+	// 		.subscribe(response=>{
+	// 			this.data = response;
+	// 		});
+	// 	return this.data;
+	// }
+	getCategoryPosts(data,categoryId,offset=0) {
+		this.http.get<any>(this.baseUrl+'posts?categories='+categoryId+'&offset='+offset)
+		.map(response =>{
+			for(let item of response)
+			{
+                data.push(item);
+			}
+		})	
+		.subscribe();
+		return data;
 	}
 	getSearchPosts(data,searchTerm,offset=0) {
 		this.http.get<any>(this.baseUrl+'posts?search='+searchTerm+'&offset='+offset)
@@ -40,15 +60,22 @@ export class ApiProvider {
 		return data;
 	}
 	getPostDetail(id){
-		/* this.http.get<any>(this.baseUrl+'posts/'+id)
-			.map()
-			.subscribe();
-			return this.data; */
+		return  this.http.get<any>(this.baseUrl+'posts/'+id); 
 	}
-
-	getCategoryDetail(id){
-		return this.http.get<any>(this.baseUrl+'categories/'+id);
-	
+      getPageDetail(id){
+		return  this.http.get<any>(this.baseUrl+'pages/'+id); 
 	}
+	/*getCategoryDetail(id){
+ console.log(this.baseUrl+'categories/'+id);
+ 	let cat:object;
+ 			this.http.get<any>(this.baseUrl+'categories/'+id)
+			 .map(response =>{
+			 cat = response;
+ 			 console.log(response)
+ 			 })
+ 			 .subscribe();
+			 return this.data;
+			
+	}*/
 
 }

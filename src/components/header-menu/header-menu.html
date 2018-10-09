@@ -5,7 +5,7 @@
 	<ion-title>
 		<ion-grid *ngIf="searchbarState=='invisible'">
 			<ion-row>
-				<ion-col>{{ title }}</ion-col>
+				<ion-col style="font-size:18px;left:-16px;">{{ title }}</ion-col>
 				<ion-col><img center src="/assets/imgs/logo3.jpg" alt="test" /></ion-col>
 				<ion-col>
 					<ion-buttons end>
@@ -19,13 +19,13 @@
 		<ion-searchbar [@searchState]="searchbarState" *ngIf="searchbarState=='visible'" placeholder="Search posts" (ionInput)="getSearch($event)" [showCancelButton]="true" (ionClear)="searchbarClose()"></ion-searchbar>
 	</ion-title>
 	<ion-grid style="color: #fff;">
-		<ion-scroll scrollX="true" style="height: 40px;width: 100%;">
+		<ion-scroll scrollX="true" style="height: 42px;width: 100%; position: absolute;top: 47px;">
 			<ion-row nowrap>	
 				<div>
-					<div style="font-size: 25px;">Home</div>
+					<div style="font-size:15px;">Home</div>
 				</div>
-				<div *ngFor="let category of categories" style="padding-left:6px">
-					<div (click)="openCatPage(category)" *ngIf= "category.name!='Uncategorised'" style="font-size: 25px;">{{ category.name}}</div>
+				<div *ngFor="let category of categories" style="padding-left:15px">
+					<div (click)="openCatPage(category)" *ngIf= "category.name!='Uncategorised'" style="font-size: 15px;">{{ category.name}}</div>
 				</div>
 			</ion-row>
 		</ion-scroll>

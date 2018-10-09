@@ -10,24 +10,36 @@
 			refreshingText="Refreshing...">
 		</ion-refresher-content>
 	</ion-refresher>
-	<ion-grid>
-		<ion-row (click)="openPost(post)" *ngFor="let post of posts">
-			<ion-col style="cursor: pointer;" col-sm-4 col-lg-1>
-				<img style="width: 80px;height: 80px;display:block;background: none;" 
+	<ion-grid fixed>
+		<ion-row col-12 (click)="openPost(post)" *ngFor="let post of posts">
+			<ion-col col-3  style="cursor: pointer;">
+				<img style="width: 150px;height: 120px;display:block;background: none;" 
 				*ngIf = "post.featuredimage"
 				[src]="post.featuredimage" />
-				<img style="width: 80px;height: 80px;display:block;background: none;" 
+				<img style="width: 150px;height: 120px;display:block;background: none;" 
 				*ngIf = "!post.featuredimage"
 				src="/assets/imgs/logo2.png" />
 			</ion-col>
-			<ion-col style="cursor: pointer;" col-sm-8>
-				<h2 style="font-family: 'Poppins', sans-serif;" [innerHTML]="post.title.rendered"></h2>
-					<p style="font-family: 'Poppins', sans-serif;" [innerHTML]="post.excerpt.rendered"></p>
-					<p style="font-size: 25px;">{{post.categories}}</p>
+			<ion-col style="cursor: pointer;" col-9>
+				<h2  col-12 style="    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    padding:0px;" [innerHTML]="post.title.rendered"></h2>
+                   
+					<p col-12 class="testp" style="font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    font-size: 12px;
+    margin: 0px;
+    padding:0px;" [innerHTML]="post.excerpt.rendered"></p>
+					<!-- <p style="font-size: 10px;">{{post.categories}}</p> 
+					 <p>{{post.date | date:'MMM dd, yyyy'}}</p>-->
 			</ion-col>
 		</ion-row>
 	</ion-grid>
 	<ion-infinite-scroll (ionInfinite)="doInfinite($event)">
-		<ion-infinite-scroll-content loadingSpinner="crescent" loadingText="Loading more data..."></ion-infinite-scroll-content>
+		<ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data..."></ion-infinite-scroll-content>
 	</ion-infinite-scroll>
 </ion-content>
